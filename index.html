@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Universe-flix</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="style.css">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<!-- Hi-tech background -->
+<canvas id="bg-canvas"></canvas>
+
+<!-- NAV -->
+<nav id="navbar" class="navbar">
+  <span class="logo">Universe-flix</span>
+  <p class="subtitle">
+  Curated cinematic universes (excluding Marvel & DC)
+</p>
+
+</nav>
+
+
+<!-- SEARCH -->
+<input
+  type="text"
+  id="search"
+  class="search-box"
+  placeholder="Search movies or universes..."
+>
+<p class="imdb-hint">Select a movie to view it on IMDb</p>
+<p id="no-results" class="no-results">No matches found. Try a different title or universe.</p>
+<div class="filters" aria-label="Universe filters">
+  <button class="filter-btn active" data-filter="all" type="button">All</button>
+  <button class="filter-btn" data-filter="action" type="button">Action</button>
+  <button class="filter-btn" data-filter="sci-fi" type="button">Sci-Fi</button>
+  <button class="filter-btn" data-filter="horror" type="button">Horror</button>
+  <button class="filter-btn" data-filter="fantasy" type="button">Fantasy</button>
+  <button class="filter-btn" data-filter="animation" type="button">Animation</button>
+  <button class="filter-btn" data-filter="adventure" type="button">Adventure</button>
+</div>
+
+<main class="app">
+
+<section class="row">
+  <h2>Jurassic Park / Jurassic World</h2>
+  <div class="cards">
+    <div class="card">Jurassic Park (1993)</div>
+    <div class="card">The Lost World (1997)</div>
+    <div class="card">Jurassic Park III (2001)</div>
+    <div class="card">Jurassic World (2015)</div>
+    <div class="card">Fallen Kingdom (2018)</div>
+    <div class="card">Dominion (2022)</div>
+  </div>
+</section>
+
+<section class="row">
+  <h2>The Conjuring Universe</h2>
+  <div class="cards">
+    <div class="card">The Conjuring (2013)</div>
+    <div class="card">Annabelle (2014)</div>
+    <div class="card">The Conjuring 2 (2016)</div>
+    <div class="card">Annabelle: Creation (2017)</div>
+    <div class="card">The Nun (2018)</div>
+    <div class="card">The Curse of La Llorona (2019)</div>
+    <div class="card">Annabelle Comes Home (2019)</div>
+    <div class="card">The Devil Made Me Do It (2021)</div>
+    <div class="card">The Nun II (2023)</div>
+  </div>
+</section>
+
+<section class="row">
+  <h2>Insidious</h2>
+  <div class="cards">
+    <div class="card">Insidious (2010)</div>
+    <div class="card">Chapter 2 (2013)</div>
+    <div class="card">Chapter 3 (2015)</div>
+    <div class="card">The Last Key (2018)</div>
+    <div class="card">The Red Door (2023)</div>
+  </div>
+</section>
+
+<section class="row">
+  <h2>MonsterVerse</h2>
+  <div class="cards">
+    <div class="card">Godzilla (2014)</div>
+    <div class="card">Kong: Skull Island (2017)</div>
+    <div class="card">King of the Monsters (2019)</div>
+    <div class="card">Godzilla vs Kong (2021)</div>
+    <div class="card">The New Empire (2024)</div>
+  </div>
+</section>
+
+<section class="row">
+  <h2>Wizarding World [Harry Potter]</h2>
+  <div class="cards">
+    <div class="card">Sorcerer’s Stone (2001)</div>
+    <div class="card">Chamber of Secrets (2002)</div>
+    <div class="card">Prisoner of Azkaban (2004)</div>
+    <div class="card">Goblet of Fire (2005)</div>
+    <div class="card">Order of the Phoenix (2007)</div>
+    <div class="card">Half-Blood Prince (2009)</div>
+    <div class="card">Deathly Hallows – Part 1 (2010)</div>
+    <div class="card">Deathly Hallows – Part 2 (2011)</div>
+    <div class="card">Fantastic Beasts (2016)</div>
+    <div class="card">Crimes of Grindelwald (2018)</div>
+    <div class="card">Secrets of Dumbledore (2022)</div>
+  </div>
+</section>
+<!-- ================= STAR WARS ================= -->
+<section class="row">
+  <h2>Star Wars</h2>
+  <div class="cards">
+    <div class="card">A New Hope (1977)</div>
+    <div class="card">The Empire Strikes Back (1980)</div>
+    <div class="card">Return of the Jedi (1983)</div>
+    <div class="card">The Phantom Menace (1999)</div>
+    <div class="card">Attack of the Clones (2002)</div>
+    <div class="card">Revenge of the Sith (2005)</div>
+    <div class="card">The Force Awakens (2015)</div>
+    <div class="card">Rogue One (2016)</div>
+    <div class="card">The Last Jedi (2017)</div>
+    <div class="card">Solo (2018)</div>
+    <div class="card">The Rise of Skywalker (2019)</div>
+  </div>
+</section>
+
+<!-- ================= MIDDLE-EARTH ================= -->
+<section class="row">
+  <h2>Middle-earth (LOTR + Hobbit)</h2>
+  <div class="cards">
+    <div class="card">The Fellowship of the Ring (2001)</div>
+    <div class="card">The Two Towers (2002)</div>
+    <div class="card">The Return of the King (2003)</div>
+    <div class="card">An Unexpected Journey (2012)</div>
+    <div class="card">The Desolation of Smaug (2013)</div>
+    <div class="card">The Battle of the Five Armies (2014)</div>
+  </div>
+</section>
+
+<!-- ================= MISSION IMPOSSIBLE ================= -->
+<section class="row">
+  <h2>Mission: Impossible</h2>
+  <div class="cards">
+    <div class="card">Mission: Impossible (1996)</div>
+    <div class="card">Mission: Impossible II (2000)</div>
+    <div class="card">Mission: Impossible III (2006)</div>
+    <div class="card">Ghost Protocol (2011)</div>
+    <div class="card">Rogue Nation (2015)</div>
+    <div class="card">Fallout (2018)</div>
+    <div class="card">Dead Reckoning – Part One (2023)</div>
+  </div>
+</section>
+
+<!-- ================= JAMES BOND ================= -->
+<section class="row">
+  <h2>James Bond</h2>
+  <div class="cards">
+    <div class="card">Dr. No (1962)</div>
+    <div class="card">Goldfinger (1964)</div>
+    <div class="card">Thunderball (1965)</div>
+    <div class="card">The Spy Who Loved Me (1977)</div>
+    <div class="card">GoldenEye (1995)</div>
+    <div class="card">Casino Royale (2006)</div>
+    <div class="card">Quantum of Solace (2008)</div>
+    <div class="card">Skyfall (2012)</div>
+    <div class="card">Spectre (2015)</div>
+    <div class="card">No Time to Die (2021)</div>
+  </div>
+</section>
+
+<!-- ================= JOHN WICK ================= -->
+<section class="row">
+  <h2>John Wick</h2>
+  <div class="cards">
+    <div class="card">John Wick (2014)</div>
+    <div class="card">Chapter 2 (2017)</div>
+    <div class="card">Chapter 3 – Parabellum (2019)</div>
+    <div class="card">Chapter 4 (2023)</div>
+  </div>
+</section>
+
+<!-- ================= THE MATRIX ================= -->
+<section class="row">
+  <h2>The Matrix</h2>
+  <div class="cards">
+    <div class="card">The Matrix (1999)</div>
+    <div class="card">The Matrix Reloaded (2003)</div>
+    <div class="card">The Matrix Revolutions (2003)</div>
+    <div class="card">The Matrix Resurrections (2021)</div>
+  </div>
+</section>
+
+<!-- ================= MAD MAX ================= -->
+<section class="row">
+  <h2>Mad Max</h2>
+  <div class="cards">
+    <div class="card">Mad Max (1979)</div>
+    <div class="card">The Road Warrior (1981)</div>
+    <div class="card">Beyond Thunderdome (1985)</div>
+    <div class="card">Fury Road (2015)</div>
+    <div class="card">Furiosa (2024)</div>
+  </div>
+</section>
+
+<!-- ================= PLANET OF THE APES ================= -->
+<section class="row">
+  <h2>Planet of the Apes (Reboot)</h2>
+  <div class="cards">
+    <div class="card">Rise of the Planet of the Apes (2011)</div>
+    <div class="card">Dawn of the Planet of the Apes (2014)</div>
+    <div class="card">War for the Planet of the Apes (2017)</div>
+    <div class="card">Kingdom of the Planet of the Apes (2024)</div>
+  </div>
+</section>
+<!-- ================= FAST & FURIOUS ================= -->
+<section class="row">
+  <h2>Fast & Furious</h2>
+  <div class="cards">
+    <div class="card">The Fast and the Furious (2001)</div>
+    <div class="card">2 Fast 2 Furious (2003)</div>
+    <div class="card">Tokyo Drift (2006)</div>
+    <div class="card">Fast & Furious (2009)</div>
+    <div class="card">Fast Five (2011)</div>
+    <div class="card">Fast & Furious 6 (2013)</div>
+    <div class="card">Furious 7 (2015)</div>
+    <div class="card">The Fate of the Furious (2017)</div>
+    <div class="card">Hobbs & Shaw (2019)</div>
+    <div class="card">F9 (2021)</div>
+    <div class="card">Fast X (2023)</div>
+  </div>
+</section>
+
+<!-- ================= TRANSFORMERS ================= -->
+<section class="row">
+  <h2>Transformers</h2>
+  <div class="cards">
+    <div class="card">Transformers (2007)</div>
+    <div class="card">Revenge of the Fallen (2009)</div>
+    <div class="card">Dark of the Moon (2011)</div>
+    <div class="card">Age of Extinction (2014)</div>
+    <div class="card">The Last Knight (2017)</div>
+    <div class="card">Bumblebee (2018)</div>
+    <div class="card">Rise of the Beasts (2023)</div>
+  </div>
+</section>
+
+<!-- ================= TERMINATOR ================= -->
+<section class="row">
+  <h2>Terminator</h2>
+  <div class="cards">
+    <div class="card">The Terminator (1984)</div>
+    <div class="card">Judgment Day (1991)</div>
+    <div class="card">Rise of the Machines (2003)</div>
+    <div class="card">Salvation (2009)</div>
+    <div class="card">Genisys (2015)</div>
+    <div class="card">Dark Fate (2019)</div>
+  </div>
+</section>
+
+<!-- ================= MEN IN BLACK ================= -->
+<section class="row">
+  <h2>Men in Black</h2>
+  <div class="cards">
+    <div class="card">Men in Black (1997)</div>
+    <div class="card">Men in Black II (2002)</div>
+    <div class="card">Men in Black 3 (2012)</div>
+    <div class="card">Men in Black: International (2019)</div>
+  </div>
+</section>
+
+<!-- ================= PIRATES OF THE CARIBBEAN ================= -->
+<section class="row">
+  <h2>Pirates of the Caribbean</h2>
+  <div class="cards">
+    <div class="card">The Curse of the Black Pearl (2003)</div>
+    <div class="card">Dead Man’s Chest (2006)</div>
+    <div class="card">At World’s End (2007)</div>
+    <div class="card">On Stranger Tides (2011)</div>
+    <div class="card">Dead Men Tell No Tales (2017)</div>
+  </div>
+</section>
+
+<!-- ================= INDIANA JONES ================= -->
+<section class="row">
+  <h2>Indiana Jones</h2>
+  <div class="cards">
+    <div class="card">Raiders of the Lost Ark (1981)</div>
+    <div class="card">Temple of Doom (1984)</div>
+    <div class="card">The Last Crusade (1989)</div>
+    <div class="card">Kingdom of the Crystal Skull (2008)</div>
+    <div class="card">Dial of Destiny (2023)</div>
+  </div>
+</section>
+
+<!-- ================= STAR TREK ================= -->
+<section class="row">
+  <h2>Star Trek (Movies)</h2>
+  <div class="cards">
+    <div class="card">Star Trek: The Motion Picture (1979)</div>
+    <div class="card">The Wrath of Khan (1982)</div>
+    <div class="card">The Search for Spock (1984)</div>
+    <div class="card">The Voyage Home (1986)</div>
+    <div class="card">The Final Frontier (1989)</div>
+    <div class="card">The Undiscovered Country (1991)</div>
+    <div class="card">Star Trek (2009)</div>
+    <div class="card">Into Darkness (2013)</div>
+    <div class="card">Beyond (2016)</div>
+  </div>
+</section>
+<!-- ================= SAW ================= -->
+<section class="row">
+  <h2>Saw</h2>
+  <div class="cards">
+    <div class="card">Saw (2004)</div>
+    <div class="card">Saw II (2005)</div>
+    <div class="card">Saw III (2006)</div>
+    <div class="card">Saw IV (2007)</div>
+    <div class="card">Saw V (2008)</div>
+    <div class="card">Saw VI (2009)</div>
+    <div class="card">Saw 3D (2010)</div>
+    <div class="card">Jigsaw (2017)</div>
+    <div class="card">Spiral (2021)</div>
+  </div>
+</section>
+
+<!-- ================= THE PURGE ================= -->
+<section class="row">
+  <h2>The Purge</h2>
+  <div class="cards">
+    <div class="card">The Purge (2013)</div>
+    <div class="card">Anarchy (2014)</div>
+    <div class="card">Election Year (2016)</div>
+    <div class="card">The First Purge (2018)</div>
+    <div class="card">The Forever Purge (2021)</div>
+  </div>
+</section>
+
+<!-- ================= PARANORMAL ACTIVITY ================= -->
+<section class="row">
+  <h2>Paranormal Activity</h2>
+  <div class="cards">
+    <div class="card">Paranormal Activity (2007)</div>
+    <div class="card">Paranormal Activity 2 (2010)</div>
+    <div class="card">Paranormal Activity 3 (2011)</div>
+    <div class="card">Paranormal Activity 4 (2012)</div>
+    <div class="card">The Marked Ones (2014)</div>
+    <div class="card">The Ghost Dimension (2015)</div>
+    <div class="card">Next of Kin (2021)</div>
+  </div>
+</section>
+
+<!-- ================= RESIDENT EVIL ================= -->
+<section class="row">
+  <h2>Resident Evil</h2>
+  <div class="cards">
+    <div class="card">Resident Evil (2002)</div>
+    <div class="card">Apocalypse (2004)</div>
+    <div class="card">Extinction (2007)</div>
+    <div class="card">Afterlife (2010)</div>
+    <div class="card">Retribution (2012)</div>
+    <div class="card">The Final Chapter (2016)</div>
+    <div class="card">Welcome to Raccoon City (2021)</div>
+  </div>
+</section>
+
+<!-- ================= HALLOWEEN ================= -->
+<section class="row">
+  <h2>Halloween</h2>
+  <div class="cards">
+    <div class="card">Halloween (1978)</div>
+    <div class="card">Halloween II (1981)</div>
+    <div class="card">Halloween (2018)</div>
+    <div class="card">Halloween Kills (2021)</div>
+    <div class="card">Halloween Ends (2022)</div>
+  </div>
+</section>
+
+<!-- ================= SCREAM ================= -->
+<section class="row">
+  <h2>Scream</h2>
+  <div class="cards">
+    <div class="card">Scream (1996)</div>
+    <div class="card">Scream 2 (1997)</div>
+    <div class="card">Scream 3 (2000)</div>
+    <div class="card">Scream 4 (2011)</div>
+    <div class="card">Scream (2022)</div>
+    <div class="card">Scream VI (2023)</div>
+  </div>
+</section>
+
+<!-- ================= FINAL DESTINATION ================= -->
+<section class="row">
+  <h2>Final Destination</h2>
+  <div class="cards">
+    <div class="card">Final Destination (2000)</div>
+    <div class="card">Final Destination 2 (2003)</div>
+    <div class="card">Final Destination 3 (2006)</div>
+    <div class="card">The Final Destination (2009)</div>
+    <div class="card">Final Destination 5 (2011)</div>
+  </div>
+</section>
+
+<!-- ================= CLOVERFIELD ================= -->
+<section class="row">
+  <h2>Cloverfield</h2>
+  <div class="cards">
+    <div class="card">Cloverfield (2008)</div>
+    <div class="card">10 Cloverfield Lane (2016)</div>
+    <div class="card">The Cloverfield Paradox (2018)</div>
+  </div>
+</section>
+<!-- ================= TOY STORY ================= -->
+<section class="row">
+  <h2>Toy Story</h2>
+  <div class="cards">
+    <div class="card">Toy Story (1995)</div>
+    <div class="card">Toy Story 2 (1999)</div>
+    <div class="card">Toy Story 3 (2010)</div>
+    <div class="card">Toy Story 4 (2019)</div>
+  </div>
+</section>
+
+<!-- ================= SHREK ================= -->
+<section class="row">
+  <h2>Shrek</h2>
+  <div class="cards">
+    <div class="card">Shrek (2001)</div>
+    <div class="card">Shrek 2 (2004)</div>
+    <div class="card">Shrek the Third (2007)</div>
+    <div class="card">Shrek Forever After (2010)</div>
+  </div>
+</section>
+
+<!-- ================= ICE AGE ================= -->
+<section class="row">
+  <h2>Ice Age</h2>
+  <div class="cards">
+    <div class="card">Ice Age (2002)</div>
+    <div class="card">The Meltdown (2006)</div>
+    <div class="card">Dawn of the Dinosaurs (2009)</div>
+    <div class="card">Continental Drift (2012)</div>
+    <div class="card">Collision Course (2016)</div>
+  </div>
+</section>
+
+<!-- ================= KUNG FU PANDA ================= -->
+<section class="row">
+  <h2>Kung Fu Panda</h2>
+  <div class="cards">
+    <div class="card">Kung Fu Panda (2008)</div>
+    <div class="card">Kung Fu Panda 2 (2011)</div>
+    <div class="card">Kung Fu Panda 3 (2016)</div>
+    <div class="card">Kung Fu Panda 4 (2024)</div>
+  </div>
+</section>
+
+<!-- ================= HOW TO TRAIN YOUR DRAGON ================= -->
+<section class="row">
+  <h2>How to Train Your Dragon</h2>
+  <div class="cards">
+    <div class="card">How to Train Your Dragon (2010)</div>
+    <div class="card">How to Train Your Dragon 2 (2014)</div>
+    <div class="card">The Hidden World (2019)</div>
+  </div>
+</section>
+
+<!-- ================= DESPICABLE ME ================= -->
+<section class="row">
+  <h2>Despicable Me / Minions</h2>
+  <div class="cards">
+    <div class="card">Despicable Me (2010)</div>
+    <div class="card">Despicable Me 2 (2013)</div>
+    <div class="card">Minions (2015)</div>
+    <div class="card">Despicable Me 3 (2017)</div>
+    <div class="card">Minions: The Rise of Gru (2022)</div>
+  </div>
+</section>
+
+<!-- ================= HUNGER GAMES ================= -->
+<section class="row">
+  <h2>The Hunger Games</h2>
+  <div class="cards">
+    <div class="card">The Hunger Games (2012)</div>
+    <div class="card">Catching Fire (2013)</div>
+    <div class="card">Mockingjay – Part 1 (2014)</div>
+    <div class="card">Mockingjay – Part 2 (2015)</div>
+    <div class="card">The Ballad of Songbirds & Snakes (2023)</div>
+  </div>
+</section>
+
+<!-- ================= MAZE RUNNER ================= -->
+<section class="row">
+  <h2>The Maze Runner</h2>
+  <div class="cards">
+    <div class="card">The Maze Runner (2014)</div>
+    <div class="card">The Scorch Trials (2015)</div>
+    <div class="card">The Death Cure (2018)</div>
+  </div>
+</section>
+
+<!-- ================= DIVERGENT ================= -->
+<section class="row">
+  <h2>Divergent</h2>
+  <div class="cards">
+    <div class="card">Divergent (2014)</div>
+    <div class="card">Insurgent (2015)</div>
+    <div class="card">Allegiant (2016)</div>
+  </div>
+</section>
+<!-- ================= BACK TO THE FUTURE ================= -->
+<section class="row">
+  <h2>Back to the Future</h2>
+  <div class="cards">
+    <div class="card">Back to the Future (1985)</div>
+    <div class="card">Back to the Future Part II (1989)</div>
+    <div class="card">Back to the Future Part III (1990)</div>
+  </div>
+</section>
+
+<!-- ================= DIE HARD ================= -->
+<section class="row">
+  <h2>Die Hard</h2>
+  <div class="cards">
+    <div class="card">Die Hard (1988)</div>
+    <div class="card">Die Hard 2 (1990)</div>
+    <div class="card">With a Vengeance (1995)</div>
+    <div class="card">Live Free or Die Hard (2007)</div>
+    <div class="card">A Good Day to Die Hard (2013)</div>
+  </div>
+</section>
+
+<!-- ================= LETHAL WEAPON ================= -->
+<section class="row">
+  <h2>Lethal Weapon</h2>
+  <div class="cards">
+    <div class="card">Lethal Weapon (1987)</div>
+    <div class="card">Lethal Weapon 2 (1989)</div>
+    <div class="card">Lethal Weapon 3 (1992)</div>
+    <div class="card">Lethal Weapon 4 (1998)</div>
+  </div>
+</section>
+
+<!-- ================= RAMBO ================= -->
+<section class="row">
+  <h2>Rambo</h2>
+  <div class="cards">
+    <div class="card">First Blood (1982)</div>
+    <div class="card">Rambo: First Blood Part II (1985)</div>
+    <div class="card">Rambo III (1988)</div>
+    <div class="card">Rambo (2008)</div>
+    <div class="card">Last Blood (2019)</div>
+  </div>
+</section>
+
+<!-- ================= THE GODFATHER ================= -->
+<section class="row">
+  <h2>The Godfather</h2>
+  <div class="cards">
+    <div class="card">The Godfather (1972)</div>
+    <div class="card">The Godfather Part II (1974)</div>
+    <div class="card">The Godfather Part III (1990)</div>
+  </div>
+</section>
+
+<!-- ================= ROCKY / CREED ================= -->
+<section class="row">
+  <h2>Rocky / Creed</h2>
+  <div class="cards">
+    <div class="card">Rocky (1976)</div>
+    <div class="card">Rocky II (1979)</div>
+    <div class="card">Rocky III (1982)</div>
+    <div class="card">Rocky IV (1985)</div>
+    <div class="card">Rocky V (1990)</div>
+    <div class="card">Rocky Balboa (2006)</div>
+    <div class="card">Creed (2015)</div>
+    <div class="card">Creed II (2018)</div>
+    <div class="card">Creed III (2023)</div>
+  </div>
+</section>
+
+<!-- ================= OCEAN’S ================= -->
+<section class="row">
+  <h2>Ocean’s</h2>
+  <div class="cards">
+    <div class="card">Ocean’s Eleven (2001)</div>
+    <div class="card">Ocean’s Twelve (2004)</div>
+    <div class="card">Ocean’s Thirteen (2007)</div>
+    <div class="card">Ocean’s 8 (2018)</div>
+  </div>
+</section>
+
+<!-- ================= JAWS ================= -->
+<section class="row">
+  <h2>Jaws</h2>
+  <div class="cards">
+    <div class="card">Jaws (1975)</div>
+    <div class="card">Jaws 2 (1978)</div>
+    <div class="card">Jaws 3-D (1983)</div>
+    <div class="card">Jaws: The Revenge (1987)</div>
+  </div>
+</section>
+<!-- ===================== AVATAR ===================== -->
+<section class="row">
+  <h2>Avatar</h2>
+  <div class="cards">
+    <div class="card">Avatar (2009)</div>
+    <div class="card">The Way of Water (2022)</div>
+    <div class="card">Avatar 3 (Upcoming)</div>
+    <div class="card">Avatar 4 (Upcoming)</div>
+    <div class="card">Avatar 5 (Upcoming)</div>
+  </div>
+</section>
+
+<!-- ===================== ALIEN ===================== -->
+<section class="row">
+  <h2>Alien</h2>
+  <div class="cards">
+    <div class="card">Alien (1979)</div>
+    <div class="card">Aliens (1986)</div>
+    <div class="card">Alien 3 (1992)</div>
+    <div class="card">Alien: Resurrection (1997)</div>
+    <div class="card">Prometheus (2012)</div>
+    <div class="card">Alien: Covenant (2017)</div>
+  </div>
+</section>
+
+<!-- ===================== PREDATOR ===================== -->
+<section class="row">
+  <h2>Predator</h2>
+  <div class="cards">
+    <div class="card">Predator (1987)</div>
+    <div class="card">Predator 2 (1990)</div>
+    <div class="card">Predators (2010)</div>
+    <div class="card">The Predator (2018)</div>
+    <div class="card">Prey (2022)</div>
+  </div>
+</section>
+
+<!-- ===================== BLADE RUNNER ===================== -->
+<section class="row">
+  <h2>Blade Runner</h2>
+  <div class="cards">
+    <div class="card">Blade Runner (1982)</div>
+    <div class="card">Blade Runner 2049 (2017)</div>
+  </div>
+</section>
+<!-- ===================== THE MUMMY ===================== -->
+<section class="row">
+  <h2>The Mummy</h2>
+  <div class="cards">
+    <div class="card">The Mummy (1999)</div>
+    <div class="card">The Mummy Returns (2001)</div>
+    <div class="card">The Mummy: Tomb of the Dragon Emperor (2008)</div>
+    <div class="card">The Scorpion King (2002)</div>
+  </div>
+</section>
+
+<!-- ===================== GHOSTBUSTERS ===================== -->
+<section class="row">
+  <h2>Ghostbusters</h2>
+  <div class="cards">
+    <div class="card">Ghostbusters (1984)</div>
+    <div class="card">Ghostbusters II (1989)</div>
+    <div class="card">Ghostbusters: Afterlife (2021)</div>
+    <div class="card">Ghostbusters: Frozen Empire (2024)</div>
+  </div>
+</section>
+
+<!-- ===================== THE KARATE KID ===================== -->
+<section class="row">
+  <h2>The Karate Kid</h2>
+  <div class="cards">
+    <div class="card">The Karate Kid (1984)</div>
+    <div class="card">The Karate Kid Part II (1986)</div>
+    <div class="card">The Karate Kid Part III (1989)</div>
+    <div class="card">The Next Karate Kid (1994)</div>
+    <div class="card">The Karate Kid (2010)</div>
+  </div>
+</section>
+
+<!-- ===================== THE CHRONICLES OF NARNIA ===================== -->
+<section class="row">
+  <h2>The Chronicles of Narnia</h2>
+  <div class="cards">
+    <div class="card">The Lion, the Witch and the Wardrobe (2005)</div>
+    <div class="card">Prince Caspian (2008)</div>
+    <div class="card">The Voyage of the Dawn Treader (2010)</div>
+  </div>
+</section>
+
+<!-- ===================== THE PINK PANTHER ===================== -->
+<section class="row">
+  <h2>The Pink Panther</h2>
+  <div class="cards">
+    <div class="card">The Pink Panther (1963)</div>
+    <div class="card">A Shot in the Dark (1964)</div>
+    <div class="card">The Pink Panther (2006)</div>
+    <div class="card">The Pink Panther 2 (2009)</div>
+  </div>
+</section>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
